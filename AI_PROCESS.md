@@ -66,3 +66,5 @@ Genera el código para los siguientes campos:
 4. necesito que implementes los crud para los servicios @ActivityServiceImpl.java y @ProjectServiceImpl.java
 
 5. Necesito que revises la lógica implementada y realices una implementación de manejo de errores global, de ser requerido utiliza enums y ajusta el manejo de las respuestas según las entidades y la lógica implementada.
+
+6. Configura swagger api para testear todos mis endpoint.
