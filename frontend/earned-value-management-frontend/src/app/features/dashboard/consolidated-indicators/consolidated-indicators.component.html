@@ -1,0 +1,65 @@
+@if (indicators(); as ind) {
+  <div class="bg-white rounded-xl border border-slate-200 p-6">
+    <h3 class="text-lg font-semibold text-slate-800 mb-4">Indicadores EVM Consolidados</h3>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-indigo-50 rounded-lg p-4">
+        <p class="text-xs font-medium text-indigo-600 uppercase tracking-wide">Valor Planificado</p>
+        <p class="text-xl font-bold text-indigo-900 mt-1">{{ ind.plannedValue | currency:'USD':'symbol':'1.2-2' }}</p>
+      </div>
+      <div class="bg-emerald-50 rounded-lg p-4">
+        <p class="text-xs font-medium text-emerald-600 uppercase tracking-wide">Valor Ganado</p>
+        <p class="text-xl font-bold text-emerald-900 mt-1">{{ ind.earnedValue | currency:'USD':'symbol':'1.2-2' }}</p>
+      </div>
+      <div class="rounded-lg p-4" [class]="ind.costVariance >= 0 ? 'bg-emerald-50' : 'bg-red-50'">
+        <p class="text-xs font-medium uppercase tracking-wide"
+           [class]="ind.costVariance >= 0 ? 'text-emerald-600' : 'text-red-600'">Variacion de Costo</p>
+        <p class="text-xl font-bold mt-1"
+           [class]="ind.costVariance >= 0 ? 'text-emerald-900' : 'text-red-900'">
+          {{ ind.costVariance | currency:'USD':'symbol':'1.2-2' }}
+        </p>
+      </div>
+      <div class="rounded-lg p-4" [class]="ind.scheduleVariance >= 0 ? 'bg-emerald-50' : 'bg-red-50'">
+        <p class="text-xs font-medium uppercase tracking-wide"
+           [class]="ind.scheduleVariance >= 0 ? 'text-emerald-600' : 'text-red-600'">Variacion de Cronograma</p>
+        <p class="text-xl font-bold mt-1"
+           [class]="ind.scheduleVariance >= 0 ? 'text-emerald-900' : 'text-red-900'">
+          {{ ind.scheduleVariance | currency:'USD':'symbol':'1.2-2' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="bg-slate-50 rounded-lg p-4">
+        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">CPI</p>
+        <p class="text-xl font-bold text-slate-800 mt-1">{{ ind.costPerformanceIndex | number:'1.2-2' }}</p>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4">
+        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">SPI</p>
+        <p class="text-xl font-bold text-slate-800 mt-1">{{ ind.schedulePerformanceIndex | number:'1.2-2' }}</p>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4">
+        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">EAC</p>
+        <p class="text-xl font-bold text-slate-800 mt-1">{{ ind.estimateAtCompletion | currency:'USD':'symbol':'1.2-2' }}</p>
+      </div>
+      <div class="bg-slate-50 rounded-lg p-4">
+        <p class="text-xs font-medium text-slate-500 uppercase tracking-wide">VAC</p>
+        <p class="text-xl font-bold text-slate-800 mt-1"
+           [class]="ind.varianceAtCompletion >= 0 ? 'text-emerald-700' : 'text-red-700'">
+          {{ ind.varianceAtCompletion | currency:'USD':'symbol':'1.2-2' }}
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-slate-600">Costo:</span>
+        <app-status-badge [interpretation]="ind.costPerformanceInterpretation" />
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-slate-600">Cronograma:</span>
+        <app-status-badge [interpretation]="ind.schedulePerformanceInterpretation" />
+      </div>
+    </div>
+  </div>
+}
