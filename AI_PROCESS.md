@@ -13,3 +13,6 @@
 - Errores comunes al aplicarlo
 
 Explícalo en lenguaje claro y con ejemplos prácticos.
+
+
+2. Crea el archivo docker para levantar el backend junto con la bd postgres, si es necesario por el momento solo crea datos mock para que se pueda ejecutar el backend y no de error por falta de los datos de conexión.
