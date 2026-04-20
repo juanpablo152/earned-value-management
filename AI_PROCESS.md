@@ -68,3 +68,10 @@ Genera el código para los siguientes campos:
 5. Necesito que revises la lógica implementada y realices una implementación de manejo de errores global, de ser requerido utiliza enums y ajusta el manejo de las respuestas según las entidades y la lógica implementada.
 
 6. Configura swagger api para testear todos mis endpoint.
+
+7. Configura los permisos de CORSpara poder realizar peticiones desde un front.
+
+8. Revisalos test actuales, luego de ser revisados realiza lo siguiente:
+
+1. vas a corregir los test que necesiten para que queden correctamente implementados.
+2. añade más test que validen la implementación de los servicios completos.
